@@ -3,42 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Component Library</title>
+    <title>Component Library Diagram</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f8f9fa; }
-        .chart { text-align: center; }
-        .title { background: #ffb6c1; display: inline-block; padding: 10px 20px; border-radius: 10px; font-size: 20px; font-weight: bold; }
-        .container { display: flex; justify-content: center; margin-top: 20px; gap: 20px; }
-        .box { background: #d9e4fc; padding: 15px; border-radius: 10px; width: 180px; text-align: center; font-weight: bold; }
-        .description { background: #eef2ff; padding: 10px; border-radius: 10px; margin-top: 10px; font-size: 14px; }
-        .arrow { width: 2px; height: 20px; background: gray; margin: 10px auto; }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+        }
+        
+        .root {
+            background-color: #f8c8e0;
+            border-radius: 25px;
+            padding: 10px 25px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .connection-line {
+            width: 2px;
+            height: 20px;
+            background-color: #aaa;
+            margin: 0 auto 10px;
+        }
+        
+        .branches {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            gap: 15px;
+        }
+        
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 200px;
+            position: relative;
+        }
+        
+        .branch:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: #aaa;
+        }
+        
+        .main-box {
+            background-color: #cfd8f7;
+            border-radius: 20px;
+            padding: 12px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .sub-box {
+            background-color: #e6eafc;
+            border-radius: 15px;
+            padding: 10px;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        
+        .branch-line {
+            width: 2px;
+            height: 20px;
+            background-color: #aaa;
+            margin: 0 auto 10px;
+        }
+        
+        ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
-    <div class="chart">
-        <div class="title">Component Library</div>
-        <div class="arrow"></div>
-        <div class="container">
-            <div>
-                <div class="box">Atoms</div>
-                <div class="arrow"></div>
-                <div class="description">Những component nhỏ, không thể tách rời:<br>• Button (Primary, Secondary...)</div>
+    <div class="diagram">
+        <!-- Root Node -->
+        <div class="root">Component Library</div>
+        
+        <!-- Connection Line -->
+        <div class="connection-line"></div>
+        
+        <!-- Main Branches -->
+        <div class="branches">
+            <!-- Atoms Branch -->
+            <div class="branch">
+                <div class="main-box">Atoms</div>
+                <div class="branch-line"></div>
+                <div class="sub-box">
+                    Những component nhỏ, không thể tách rời:
+                    <ul>
+                        <li>Button (Primary, Secondary...)</li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <div class="box">Molecules</div>
-                <div class="arrow"></div>
-                <div class="description">Gồm nhiều atoms kết hợp với nhau:<br>• Form Field (Input + Label + Error message)</div>
+            
+            <!-- Molecules Branch -->
+            <div class="branch">
+                <div class="main-box">Molecules</div>
+                <div class="branch-line"></div>
+                <div class="sub-box">
+                    Gồm nhiều atoms kết hợp với nhau:
+                    <ul>
+                        <li>Form Field (Input + Label + Error message...)</li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <div class="box">Organisms...</div>
-                <div class="arrow"></div>
-                <div class="description">Gồm nhiều molecules kết hợp:<br>• Navbar (Logo + Menu + Search + Avatar)</div>
+            
+            <!-- Organisms Branch -->
+            <div class="branch">
+                <div class="main-box">Organisms...</div>
+                <div class="branch-line"></div>
+                <div class="sub-box">
+                    Gồm nhiều molecules kết hợp:
+                    <ul>
+                        <li>Navbar (Logo + Menu + Search + Avatar)</li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <div class="box">Templates & Pages</div>
-                <div class="arrow"></div>
-                <div class="description">Template: Cấu trúc trang (Dashboard layout, Sidebar layout...)<br>Page: Trang hoàn chỉnh</div>
+            
+            <!-- Templates & Pages Branch -->
+            <div class="branch">
+                <div class="main-box">Templates & Pages</div>
+                <div class="branch-line"></div>
+                <div class="sub-box">
+                    Template: Cấu trúc trang (Dashboard layout, Sidebar layout...)
+                    <br><br>
+                    Page: Trang hoàn chỉnh...
+                </div>
             </div>
         </div>
     </div>
